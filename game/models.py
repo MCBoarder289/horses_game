@@ -13,11 +13,11 @@ class Player:
 
 class Horse:
     def __init__(self, number: int):
-        self.number = number
-        self.is_racing = True
-        self.is_winner = False
-        self.penalty_price = 0
-        self.winning_count = get_winning_count(number)
+        self.number: int = number
+        self.is_racing: bool = True
+        self.is_winner: bool = False
+        self.penalty_price: int = 0
+        self.winning_count: int = get_winning_count(number)
 
     def set_penalty_price(self, penalty: int):
         self.penalty_price = penalty
@@ -34,7 +34,7 @@ class Horse:
         self.winning_count = get_winning_count(self.number)
 
 
-def get_winning_count(number: int):
+def get_winning_count(number: int) -> int:
     if number == 2 or number == 12:
         return 2
     if number == 3 or number == 11:
@@ -53,13 +53,13 @@ def get_winning_count(number: int):
 
 class Game:
     def __init__(self, players: List[Player], horses: List[Horse], turns_per_player: int = 5):
-        self.players = players
-        self.horses = horses
-        self.is_elimination_round = True
-        self.elimination_penalty = 1
-        self.is_racing_round = False
-        self.pot = 0
-        self.turns_per_player = turns_per_player
+        self.players: List[Player] = players
+        self.horses: List[Horse] = horses
+        self.is_elimination_round: bool = True
+        self.elimination_penalty: int = 1
+        self.is_racing_round: bool = False
+        self.pot: int = 0
+        self.turns_per_player: int = turns_per_player
         self.deck = self._create_deck()
 
     def start_racing(self):
